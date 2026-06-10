@@ -7,6 +7,17 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 
 ## [Unreleased]
 
+## [1.1.4] - 2026-06-10
+
+### Changed
+- Compact layout pass to reduce wasted space: tighter `line-height` (1.3 → 1.25),
+  reduced spacing between sections (1.5em → 0.85em), entries (0.7em → 0.45em),
+  roles, and the header; smaller print page margin (`@page` 0.5in → 0.4in). Font
+  size is unchanged.
+- Print: explicitly allow a tall role and its bullet list to split across a page
+  break (between bullets), so a big role fills the current page instead of being
+  pushed wholesale to the next.
+
 ## [1.1.3] - 2026-06-10
 
 ### Fixed
@@ -90,7 +101,8 @@ repository, which `jekyll-remote-theme` cannot authenticate against.
 - Conditional rendering for optional fields
 - HTML support in bullet points for formatting
 
-[Unreleased]: https://github.com/sengine-cloud/harvard-style-cv-theme/compare/v1.1.3...HEAD
+[Unreleased]: https://github.com/sengine-cloud/harvard-style-cv-theme/compare/v1.1.4...HEAD
+[1.1.4]: https://github.com/sengine-cloud/harvard-style-cv-theme/compare/v1.1.3...v1.1.4
 [1.1.3]: https://github.com/sengine-cloud/harvard-style-cv-theme/compare/v1.1.2...v1.1.3
 [1.1.2]: https://github.com/sengine-cloud/harvard-style-cv-theme/compare/v1.1.1...v1.1.2
 [1.1.1]: https://github.com/sengine-cloud/harvard-style-cv-theme/compare/v1.1.0...v1.1.1
