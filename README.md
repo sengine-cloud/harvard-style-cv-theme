@@ -37,17 +37,34 @@ remote_theme: sengine-cloud/harvard-style-cv-theme@v1.1.0
 
 > ⚠️ **Private repositories:** `jekyll-remote-theme` downloads the theme from
 > `codeload.github.com` and sends **no credentials**, so `remote_theme` cannot
-> authenticate against a private theme repo — use **Option A** instead. In CI,
-> give Bundler read access to the private theme repo, e.g.:
+> authenticate against a private theme repo — use **Option A** instead, and give
+> the consuming site's CI read access to this repo.
 >
-> ```sh
-> git config --global \
->   url."https://x-access-token:${THEME_REPO_TOKEN}@github.com/".insteadOf \
->   "https://github.com/"
+> The recommended way is **[Octo STS](https://github.com/octo-sts/app)** — OIDC
+> federation with *no stored secrets*. Check a trust policy into this repo at
+> `.github/chainguard/<identity>.sts.yaml` (see
+> [`alex-cv-pages.sts.yaml`](.github/chainguard/alex-cv-pages.sts.yaml)), install
+> the [Octo STS app](https://github.com/apps/octo-sts) on this repo, then in the
+> consumer's workflow mint a short-lived token and hand it to Bundler:
+>
+> ```yaml
+> permissions:
+>   id-token: write   # federate the OIDC token
+>   contents: read
+> steps:
+>   - uses: octo-sts/action@v1
+>     id: octo-sts
+>     with:
+>       scope: sengine-cloud/harvard-style-cv-theme   # this repo
+>       identity: alex-cv-pages                        # the .sts.yaml stem
+>   - run: >
+>       git config --global
+>       url."https://x-access-token:${{ steps.octo-sts.outputs.token }}@github.com/".insteadOf
+>       "https://github.com/"
 > ```
 >
-> where `THEME_REPO_TOKEN` is a token (fine-grained PAT, deploy key, or GitHub
-> App token) with read access to this repository.
+> A fine-grained PAT or deploy key works too (drop it into the same `git config`
+> line as `x-access-token:${TOKEN}`), but that stores a long-lived secret.
 
 ---
 
