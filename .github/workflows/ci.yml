@@ -1,0 +1,48 @@
+# Builds this theme's bundled demo site and uploads it as a downloadable
+# artifact, so the rendered output can be reviewed (e.g. from a PR) without
+# deploying anywhere. The theme is consumed by sites as a gem; this only
+# exercises the repo's own demo build.
+name: CI
+
+on:
+  pull_request:
+    branches: ["main"]
+  push:
+    branches: ["main"]
+  workflow_dispatch:
+
+permissions:
+  contents: read
+
+# Cancel superseded runs when a PR gets new commits.
+concurrency:
+  group: "ci-${{ github.workflow }}-${{ github.ref }}"
+  cancel-in-progress: true
+
+jobs:
+  build:
+    name: Build demo site
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v4
+      - name: Setup Ruby
+        # https://github.com/ruby/setup-ruby/releases/tag/v1.310.0
+        uses: ruby/setup-ruby@afeafc3d1ab54a631816aba4c914a0081c12ff2f
+        with:
+          ruby-version: "3.4.9"
+          bundler-cache: true # runs 'bundle install' and caches installed gems automatically
+          cache-version: 0
+      - name: Build with Jekyll
+        run: bundle exec jekyll build --trace
+        env:
+          JEKYLL_ENV: production
+      # Upload the built demo site so it can be downloaded from the run's
+      # "Artifacts" section to eyeball the rendered theme.
+      - name: Upload built demo site
+        uses: actions/upload-artifact@v4
+        with:
+          name: demo-site
+          path: _site/
+          retention-days: 14
+          if-no-files-found: error
