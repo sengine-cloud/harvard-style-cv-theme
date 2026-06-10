@@ -7,6 +7,17 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 
 ## [Unreleased]
 
+## [1.1.2] - 2026-06-10
+
+### Fixed
+- The demo site's `_config.yml` was being merged into consuming sites. Jekyll
+  merges a theme gem's `_config.yml` into the consumer's configuration, so the
+  demo persona placeholders (`title`, `email`, `phone`, `address`, `website`,
+  `department`, social handles, …) filled in any field the consuming site left
+  unset — exposing e.g. "123 Main St, City, Country" in real CVs. Moved the demo
+  configuration to **`_config.demo.yml`** (built via `--config _config.demo.yml`)
+  so consumers inherit nothing from it. No `_config.yml` ships in the repo now.
+
 ## [1.1.1] - 2026-06-10
 
 ### Fixed
@@ -70,7 +81,8 @@ repository, which `jekyll-remote-theme` cannot authenticate against.
 - Conditional rendering for optional fields
 - HTML support in bullet points for formatting
 
-[Unreleased]: https://github.com/sengine-cloud/harvard-style-cv-theme/compare/v1.1.1...HEAD
+[Unreleased]: https://github.com/sengine-cloud/harvard-style-cv-theme/compare/v1.1.2...HEAD
+[1.1.2]: https://github.com/sengine-cloud/harvard-style-cv-theme/compare/v1.1.1...v1.1.2
 [1.1.1]: https://github.com/sengine-cloud/harvard-style-cv-theme/compare/v1.1.0...v1.1.1
 [1.1.0]: https://github.com/sengine-cloud/harvard-style-cv-theme/compare/v1.0.0...v1.1.0
 [1.0.0]: https://github.com/sengine-cloud/harvard-style-cv-theme/releases/tag/v1.0.0
