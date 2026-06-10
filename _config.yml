@@ -1,0 +1,20 @@
+title: "Your Name" # Your full name (large, bold, centered)
+email: "your@email.com" # Your email address
+phone: "(123) 456-7890" # Your phone number (optional)
+address: "123 Main St, City, Country" # Your address (optional)
+website: "https://yourwebsite.com" # Your website (optional)
+department: "Your Department, University, City, Country" # Department/affiliation (optional)
+affiliation: "Optional: Additional affiliation or department" # Second affiliation (optional)
+linkedin: yourprofile
+twitter: yourprofile
+github: yourprofile
+telegram: yourtelegramusername
+leetcode: yourleetcodeusername
+description: "Harvard‑style CV • Example" # Site description (for SEO)
+# google_analytics: G-XXXXXXXXXX # Google Analytics ID (optional)
+# yandex_metrika: 12345678 # Yandex.Metrika counter ID (optional)
+baseurl: "" # GitHub Pages baseurl (leave blank for user pages)
+url: "https://yourusername.github.io" # Your GitHub Pages URL
+plugins:
+  - jekyll-seo-tag
+markdown: kramdown
