@@ -34,7 +34,9 @@ jobs:
           bundler-cache: true # runs 'bundle install' and caches installed gems automatically
           cache-version: 0
       - name: Build with Jekyll
-        run: bundle exec jekyll build --trace
+        # Demo site config is _config.demo.yml (not _config.yml) so it isn't
+        # merged into sites that consume this repo as a theme gem.
+        run: bundle exec jekyll build --trace --config _config.demo.yml
         env:
           JEKYLL_ENV: production
       # Upload the built demo site so it can be downloaded from the run's
