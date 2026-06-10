@@ -84,7 +84,7 @@ body {
   font-weight: bold;
 }
 
-.cv-entry-degree {
+.cv-entry-sub {
   font-style: italic;
   font-weight: normal;
   margin-left: 0.2em;
@@ -116,6 +116,20 @@ body {
 .cv-entry-bullets li {
   margin-bottom: 0.1em;
   font-size: 1rem;
+}
+
+// Nested roles: multiple positions held within a single employer/entry.
+.cv-entry-roles {
+  margin-left: 1.25em;
+}
+
+.cv-entry-role {
+  margin-top: 0.4em;
+  margin-bottom: 0.7em;
+}
+
+.cv-entry-role .cv-entry-institution {
+  font-weight: 600;
 }
 
 ul {
@@ -201,7 +215,7 @@ ul {
     font-size: 11pt;
     margin: 0.5in;
   }
-  .cv-header, .cv-entry {
+  .cv-header, .cv-entry, .cv-entry-role {
     page-break-inside: avoid;
   }
   a {

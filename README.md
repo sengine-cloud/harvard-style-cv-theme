@@ -7,13 +7,64 @@ Instantly create a professional academic CV with a classic Harvard look—custom
 
 ## 🚀 Quick Start
 
-Add this to your Jekyll site's `_config.yml`:
+There are two ways to consume this theme. Then create your own `_config.yml` and
+`_data/cv.yml` files with your information.
 
-```yaml
-remote_theme: smirnoffmg/harvard-style-cv-theme
+### Option A — as a gem (recommended; works with private repos)
+
+Package-based consumption builds the theme through Bundler, so it can be pinned
+to a tag for reproducible builds and can be fetched from a **private** repository.
+
+`Gemfile`:
+
+```ruby
+gem "harvard-style-cv-theme",
+    git: "https://github.com/sengine-cloud/harvard-style-cv-theme.git",
+    tag: "v1.1.0"
 ```
 
-Then create your own `_config.yml` and `_data/cv.yml` files with your information.
+`_config.yml`:
+
+```yaml
+theme: harvard-style-cv-theme
+```
+
+### Option B — as a remote theme (public repos only)
+
+```yaml
+remote_theme: sengine-cloud/harvard-style-cv-theme@v1.1.0
+```
+
+> ⚠️ **Private repositories:** `jekyll-remote-theme` downloads the theme from
+> `codeload.github.com` and sends **no credentials**, so `remote_theme` cannot
+> authenticate against a private theme repo — use **Option A** instead, and give
+> the consuming site's CI read access to this repo.
+>
+> The recommended way is **[Octo STS](https://github.com/octo-sts/app)** — OIDC
+> federation with *no stored secrets*. Check a trust policy into this repo at
+> `.github/chainguard/<identity>.sts.yaml` (see
+> [`alex-cv-pages.sts.yaml`](.github/chainguard/alex-cv-pages.sts.yaml)), install
+> the [Octo STS app](https://github.com/apps/octo-sts) on this repo, then in the
+> consumer's workflow mint a short-lived token and hand it to Bundler:
+>
+> ```yaml
+> permissions:
+>   id-token: write   # federate the OIDC token
+>   contents: read
+> steps:
+>   - uses: octo-sts/action@v1
+>     id: octo-sts
+>     with:
+>       scope: sengine-cloud/harvard-style-cv-theme   # this repo
+>       identity: alex-cv-pages                        # the .sts.yaml stem
+>   - run: >
+>       git config --global
+>       url."https://x-access-token:${{ steps.octo-sts.outputs.token }}@github.com/".insteadOf
+>       "https://github.com/"
+> ```
+>
+> A fine-grained PAT or deploy key works too (drop it into the same `git config`
+> line as `x-access-token:${TOKEN}`), but that stores a long-lived secret.
 
 ---
 
@@ -38,6 +89,9 @@ github: janesmith
 twitter: janesmith
 telegram: janesmith
 leetcode: janesmith
+
+# Optional: GoatCounter (privacy-friendly; tracks data-goatcounter-click links)
+goatcounter: "https://yourcode.goatcounter.com"
 
 # Optional: Google Analytics
 google_analytics: G-XXXXXXXXXX
@@ -132,6 +186,29 @@ sections:
           - "Recognized for innovative contributions to NLP field"
 ```
 
+#### Grouping multiple roles at one employer
+
+An entry may carry a `roles:` list to group several positions held at the same
+employer. Each role renders as a nested entry (with its own `title`, `sub`,
+`location`, `dates`, and `bullets`):
+
+```yaml
+  - title: Experience
+    entries:
+      - title: "Acme Corp"
+        sub: "Intern → Engineer → Senior Engineer"
+        dates: "2018 - 2023"
+        roles:
+          - title: "Senior Engineer"
+            dates: "2021 - 2023"
+            bullets:
+              - "Led a team and owned a major subsystem."
+          - title: "Engineer"
+            dates: "2019 - 2021"
+            bullets:
+              - "Shipped features across the stack."
+```
+
 ---
 
 ## ✨ Features
@@ -150,11 +227,17 @@ sections:
 
 ## 🤝 Contributing
 
-Found a bug or have a feature request? [Open an issue](https://github.com/smirnoffmg/harvard-style-cv-theme/issues) or submit a pull request!
+Found a bug or have a feature request? [Open an issue](https://github.com/sengine-cloud/harvard-style-cv-theme/issues) or submit a pull request!
+
+---
+
+## 🙏 Attribution
+
+This is a fork of [`smirnoffmg/harvard-style-cv-theme`](https://github.com/smirnoffmg/harvard-style-cv-theme) by [Maksim Smirnov](https://github.com/smirnoffmg), vendored under the `sengine-cloud` organization and extended (nested roles, GoatCounter support, gem packaging). Licensed under MIT — see [LICENSE](LICENSE).
 
 ---
 
 **Ready to create your professional CV?** 🚀
 
-[Fork this repository](https://github.com/smirnoffmg/harvard-style-cv-theme/fork) or [use as remote theme](#-quick-start) to get started!
+[Use it as a gem or remote theme](#-quick-start) to get started!
 

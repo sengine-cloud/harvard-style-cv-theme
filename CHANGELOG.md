@@ -7,18 +7,32 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 
 ## [Unreleased]
 
+## [1.1.0] - 2026-06-10
+
+Forked/vendored under the `sengine-cloud` organization and packaged as a gem so
+it can be consumed as a versioned dependency — including from a **private**
+repository, which `jekyll-remote-theme` cannot authenticate against.
+
 ### Added
-- GitHub Actions CI/CD pipeline
-- Automated semantic versioning
-- Automated release management
-- Automated GitHub Pages deployment
-- Comprehensive testing and validation
-- Branch protection and workflow guidelines
+- **Nested `roles`** in `cv.html`: an entry can group several positions held at
+  one employer, each rendered as a nested entry (`title`, `sub`, `location`,
+  `dates`, `bullets`). Styles (`.cv-entry-roles`, `.cv-entry-role`) folded into
+  `main.scss`, including a `page-break-inside: avoid` print rule.
+- **GoatCounter** analytics support in `default.html` (enabled via the
+  `goatcounter` config key), with per-pageview version tagging through
+  `site.commit_short`, alongside the existing Google Analytics and
+  Yandex.Metrika options. Contact and social links now also carry
+  `data-goatcounter-click` attributes next to the existing `data-ym-goal` ones.
+- **Gem packaging**: `harvard-style-cv-theme.gemspec`, so the theme can be used
+  via a Bundler `git:` source (`gem "harvard-style-cv-theme", git: ..., tag: ...`)
+  in addition to `remote_theme`.
 
 ### Changed
-- Updated constitution to include CI/CD guidelines
-- Improved documentation structure
-- Enhanced build validation
+- Renamed the `.cv-entry-degree` class to the context-neutral **`.cv-entry-sub`**
+  (it styles any entry's `sub` field, not only academic degrees). Both top-level
+  entries and nested roles use it.
+- `<title>` now uses `affiliation` (falling back to `title`) as its suffix.
+- `Gemfile` now uses `gemspec`; build artifacts are gitignored.
 
 ## [1.0.0] - 2024-12-XX
 
@@ -44,5 +58,6 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 - Conditional rendering for optional fields
 - HTML support in bullet points for formatting
 
-[Unreleased]: https://github.com/smirnoffmg/harvard-style-cv-theme/compare/v1.0.0...HEAD
-[1.0.0]: https://github.com/smirnoffmg/harvard-style-cv-theme/releases/tag/v1.0.0 
+[Unreleased]: https://github.com/sengine-cloud/harvard-style-cv-theme/compare/v1.1.0...HEAD
+[1.1.0]: https://github.com/sengine-cloud/harvard-style-cv-theme/compare/v1.0.0...v1.1.0
+[1.0.0]: https://github.com/sengine-cloud/harvard-style-cv-theme/releases/tag/v1.0.0

@@ -1,0 +1,21 @@
+# yaml-language-server: $schema=https://raw.githubusercontent.com/octo-sts/app/refs/heads/main/pkg/octosts/octosts.TrustPolicy.json
+#
+# Octo STS trust policy — lets sengine-cloud/alex-cv's GitHub Actions federate
+# via OIDC (no stored secrets) and mint a short-lived token to read THIS private
+# theme repo, so alex-cv's Pages build can fetch the theme gem with Bundler.
+#
+# Consumed by the Octo STS GitHub App (https://github.com/apps/octo-sts), which
+# must be installed on this repository. The app reads this policy from this
+# repo's DEFAULT branch, so it only takes effect once merged to the default
+# branch. The consuming workflow requests it with:
+#   scope: sengine-cloud/harvard-style-cv-theme   (this repo)
+#   identity: alex-cv-pages                        (this file's stem)
+issuer: https://token.actions.githubusercontent.com
+
+# Matches the GitHub Actions OIDC `sub` claim for any workflow/ref in alex-cv.
+# Tighten to a single ref if preferred, e.g.:
+#   subject: repo:sengine-cloud/alex-cv:ref:refs/heads/main
+subject_pattern: "repo:sengine-cloud/alex-cv:.*"
+
+permissions:
+  contents: read
