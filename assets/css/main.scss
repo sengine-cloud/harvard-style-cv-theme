@@ -220,12 +220,11 @@ ul {
     font-size: 11pt;
     margin: 0;
   }
-  // Keep the name block, each individual role, and simple (role-less) entries
-  // from splitting across pages — but let large multi-role employer entries
-  // flow across the page break (between roles) instead of being pushed wholesale
-  // to the next page, which left big gaps at the bottom of a page.
+  // Keep the name block and simple (role-less) entries from splitting across
+  // pages. Do NOT add roles here: a tall role with page-break-inside: avoid that
+  // doesn't fit the remaining space gets pushed to the next page wholesale,
+  // leaving a large gap. Letting roles flow across the page break fills pages.
   .cv-header,
-  .cv-entry-role,
   .cv-entry:not(:has(.cv-entry-roles)) {
     page-break-inside: avoid;
   }

@@ -7,6 +7,15 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 
 ## [Unreleased]
 
+## [1.1.3] - 2026-06-10
+
+### Fixed
+- Print/PDF could still leave a page half-empty. An entry's role kept
+  `page-break-inside: avoid`, so a tall role (one with many bullets) that didn't
+  fit the remaining space pushed the whole employer block to the next page,
+  leaving a big gap. Roles now flow across page breaks; only the name block and
+  simple, role-less entries are kept from splitting.
+
 ## [1.1.2] - 2026-06-10
 
 ### Fixed
@@ -81,7 +90,8 @@ repository, which `jekyll-remote-theme` cannot authenticate against.
 - Conditional rendering for optional fields
 - HTML support in bullet points for formatting
 
-[Unreleased]: https://github.com/sengine-cloud/harvard-style-cv-theme/compare/v1.1.2...HEAD
+[Unreleased]: https://github.com/sengine-cloud/harvard-style-cv-theme/compare/v1.1.3...HEAD
+[1.1.3]: https://github.com/sengine-cloud/harvard-style-cv-theme/compare/v1.1.2...v1.1.3
 [1.1.2]: https://github.com/sengine-cloud/harvard-style-cv-theme/compare/v1.1.1...v1.1.2
 [1.1.1]: https://github.com/sengine-cloud/harvard-style-cv-theme/compare/v1.1.0...v1.1.1
 [1.1.0]: https://github.com/sengine-cloud/harvard-style-cv-theme/compare/v1.0.0...v1.1.0
