@@ -3,10 +3,28 @@
 
 <head>
     <meta charset="UTF-8">
-    <title>{{ page.title }} · {{ site.title }}</title>
+    <title>{{ page.title }} · {{ site.affiliation | default: site.title }}</title>
     <meta name="viewport" content="width=device-width, initial-scale=1">
     {% seo %}
     <link rel="stylesheet" href="{{ '/assets/css/main.css' | relative_url }}">
+
+    {% if site.goatcounter %}
+    <!-- GoatCounter analytics -->
+    <script>
+        window.goatcounter = {
+            // Tag each pageview with the deployed commit so views map to a version.
+            // {{ site.commit_short }} is provided by the consuming site (optional); falls back to "dev".
+            path: function (p) {
+                return (
+                    p +
+                    (p.indexOf("?") > -1 ? "&" : "?") +
+                    'v={{ site.commit_short | default: "dev" }}'
+                );
+            },
+        };
+    </script>
+    <script data-goatcounter="{{ site.goatcounter }}/count" async src="{{ site.goatcounter }}/count.js"></script>
+    {% endif %}
 
     {% if site.google_analytics %}
     <!-- Google Analytics -->

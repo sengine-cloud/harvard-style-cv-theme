@@ -16,6 +16,24 @@ sections:
         bullets:
           - "What you did, impact, etc."
           - "Another accomplishment."
+      # An entry can group several positions held at one employer via `roles`.
+      # Each role renders like a nested entry (title, sub, location, dates, bullets).
+      - title: "Employer With Multiple Roles"
+        sub: "Intern → Engineer → Senior Engineer"
+        dates: "2018 - 2023"
+        roles:
+          - title: "Senior Engineer"
+            dates: "2021 - 2023"
+            bullets:
+              - "Led a small team and owned a major subsystem."
+          - title: "Engineer"
+            dates: "2019 - 2021"
+            bullets:
+              - "Shipped features across the stack."
+          - title: "Intern"
+            dates: "2018 - 2019"
+            bullets:
+              - "Prototyped tooling that later shipped to production."
   - title: Skills
     entries:
       - title: "Programming Languages"

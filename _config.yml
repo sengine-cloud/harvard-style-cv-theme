@@ -4,7 +4,7 @@ phone: "(123) 456-7890" # Your phone number (optional)
 address: "123 Main St, City, Country" # Your address (optional)
 website: "https://yourwebsite.com" # Your website (optional)
 department: "Your Department, University, City, Country" # Department/affiliation (optional)
-affiliation: "Optional: Additional affiliation or department" # Second affiliation (optional)
+affiliation: "Research Fellow, Example University" # Second affiliation / tagline (optional; also used as the <title> suffix)
 linkedin: yourprofile
 twitter: yourprofile
 github: yourprofile
