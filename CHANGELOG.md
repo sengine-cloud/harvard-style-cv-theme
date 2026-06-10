@@ -7,6 +7,18 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 
 ## [Unreleased]
 
+## [1.1.1] - 2026-06-10
+
+### Fixed
+- Print/PDF layout wasted a lot of horizontal and vertical space. Scoped the
+  responsive breakpoints to `screen` so print keeps the two-column header (dates
+  right-aligned beside titles) instead of inheriting the mobile stacked layout;
+  let large multi-role employer entries flow across page breaks instead of being
+  pushed wholesale to the next page (which left big gaps at the bottom of a
+  page); and set the printable margin once via `@page` so it no longer stacks
+  with the browser's default margin. Individual roles and simple entries still
+  avoid mid-entry page breaks (via `:has()`).
+
 ## [1.1.0] - 2026-06-10
 
 Forked/vendored under the `sengine-cloud` organization and packaged as a gem so
@@ -58,6 +70,7 @@ repository, which `jekyll-remote-theme` cannot authenticate against.
 - Conditional rendering for optional fields
 - HTML support in bullet points for formatting
 
-[Unreleased]: https://github.com/sengine-cloud/harvard-style-cv-theme/compare/v1.1.0...HEAD
+[Unreleased]: https://github.com/sengine-cloud/harvard-style-cv-theme/compare/v1.1.1...HEAD
+[1.1.1]: https://github.com/sengine-cloud/harvard-style-cv-theme/compare/v1.1.0...v1.1.1
 [1.1.0]: https://github.com/sengine-cloud/harvard-style-cv-theme/compare/v1.0.0...v1.1.0
 [1.0.0]: https://github.com/sengine-cloud/harvard-style-cv-theme/releases/tag/v1.0.0
