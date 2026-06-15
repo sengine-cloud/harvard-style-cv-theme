@@ -7,6 +7,15 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 
 ## [Unreleased]
 
+## [1.2.0] - 2026-06-15
+
+### Added
+- **Print / Save-as-PDF button** in `cv.html`: a floating, round printer-icon
+  button pinned to the bottom-right corner on screen that calls the browser's
+  native print dialog (`window.print()`). It is hidden from the printed output
+  via `@media print`, and carries the usual `data-ym-goal` / `data-goatcounter-click`
+  hooks so the click is tracked alongside the other contact/social actions.
+
 ## [1.1.4] - 2026-06-10
 
 ### Changed
@@ -101,7 +110,8 @@ repository, which `jekyll-remote-theme` cannot authenticate against.
 - Conditional rendering for optional fields
 - HTML support in bullet points for formatting
 
-[Unreleased]: https://github.com/sengine-cloud/harvard-style-cv-theme/compare/v1.1.4...HEAD
+[Unreleased]: https://github.com/sengine-cloud/harvard-style-cv-theme/compare/v1.2.0...HEAD
+[1.2.0]: https://github.com/sengine-cloud/harvard-style-cv-theme/compare/v1.1.4...v1.2.0
 [1.1.4]: https://github.com/sengine-cloud/harvard-style-cv-theme/compare/v1.1.3...v1.1.4
 [1.1.3]: https://github.com/sengine-cloud/harvard-style-cv-theme/compare/v1.1.2...v1.1.3
 [1.1.2]: https://github.com/sengine-cloud/harvard-style-cv-theme/compare/v1.1.1...v1.1.2
