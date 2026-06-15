@@ -215,6 +215,14 @@ employer. Each role renders as a nested entry (with its own `title`, `sub`,
 
 - **Classic Harvard layout** with bold centered name and structured sections
 - **Print/PDF friendly** - looks crisp when printed or saved as PDF
+- **One-click print button** - a floating printer-icon button opens the browser's print/save-as-PDF dialog (hidden in the printed output itself)
+
+  ![Printer-icon button pinned to the bottom-right corner of the CV page](docs/screenshots/print-button.png)
+
+  Default and hover/focus (color-inverted) states:
+
+  ![Printer button default and hover/focus states side by side](docs/screenshots/print-button-states.png)
+
 - **Responsive design** - perfect on desktop, tablet, and mobile
 - **Social integration** - LinkedIn, GitHub, Twitter, Telegram, LeetCode icons
 - **Easy customization** - manage all content through simple YAML files

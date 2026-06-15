@@ -1,7 +1,7 @@
 PATH
   remote: .
   specs:
-    harvard-style-cv-theme (1.1.4)
+    harvard-style-cv-theme (1.2.0)
       jekyll (>= 3.7, < 5.0)
       jekyll-seo-tag (~> 2.0)
 
