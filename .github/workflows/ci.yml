@@ -13,6 +13,7 @@ on:
 
 permissions:
   contents: read
+  id-token: write # let the pick-runner reusable self-mint the arc-probe token
 
 # Cancel superseded runs when a PR gets new commits.
 concurrency:
@@ -20,9 +21,15 @@ concurrency:
   cancel-in-progress: true
 
 jobs:
+  # Route through the org CI_RUNNER_MODE switch (ADR-0007 Form 1): ARC when up,
+  # spill to GitHub-hosted otherwise. Self-minting reusable — no stored secret.
+  pick:
+    uses: sengine-cloud/actions/.github/workflows/pick-runner.yml@main
+
   build:
     name: Build demo site
-    runs-on: ubuntu-latest
+    needs: pick
+    runs-on: ${{ fromJSON(needs.pick.outputs.runs-on || '"ubuntu-latest"') }}
     steps:
       - name: Checkout
         uses: actions/checkout@v4
