@@ -5,20 +5,21 @@ Build a CV or résumé with a classic Harvard look. It is customizable, mobile-f
 
 ## 🚀 Quick Start
 
-There are two ways to consume this theme. Then create your own `_config.yml` and
-`_data/cv.yml` files with your information.
+There are two ways to use this theme. With either one, create your own
+`_config.yml` and `_data/cv.yml` with your information (examples below). The
+repository is public, so neither option needs a token or other credentials.
 
-### Option A — as a gem (recommended; works with private repos)
+### Option A: as a gem (recommended)
 
-Package-based consumption builds the theme through Bundler, so it can be pinned
-to a tag for reproducible builds and can be fetched from a **private** repository.
+Bundler fetches the theme at a release tag, so every build uses the same version
+until you bump it.
 
 `Gemfile`:
 
 ```ruby
 gem "harvard-style-cv-theme",
     git: "https://github.com/sengine-cloud/harvard-style-cv-theme.git",
-    tag: "v1.1.0"
+    tag: "v1.3.0"
 ```
 
 `_config.yml`:
@@ -27,42 +28,14 @@ gem "harvard-style-cv-theme",
 theme: harvard-style-cv-theme
 ```
 
-### Option B — as a remote theme (public repos only)
+### Option B: as a remote theme
 
 ```yaml
-remote_theme: sengine-cloud/harvard-style-cv-theme@v1.1.0
+remote_theme: sengine-cloud/harvard-style-cv-theme@v1.3.0
 ```
 
-> ⚠️ **Private repositories:** `jekyll-remote-theme` downloads the theme from
-> `codeload.github.com` and sends **no credentials**, so `remote_theme` cannot
-> authenticate against a private theme repo — use **Option A** instead, and give
-> the consuming site's CI read access to this repo.
->
-> The recommended way is **[Octo STS](https://github.com/octo-sts/app)** — OIDC
-> federation with *no stored secrets*. Check a trust policy into this repo at
-> `.github/chainguard/<identity>.sts.yaml` (see
-> [`alex-cv-pages.sts.yaml`](.github/chainguard/alex-cv-pages.sts.yaml)), install
-> the [Octo STS app](https://github.com/apps/octo-sts) on this repo, then in the
-> consumer's workflow mint a short-lived token and hand it to Bundler:
->
-> ```yaml
-> permissions:
->   id-token: write   # federate the OIDC token
->   contents: read
-> steps:
->   - uses: octo-sts/action@v1
->     id: octo-sts
->     with:
->       scope: sengine-cloud/harvard-style-cv-theme   # this repo
->       identity: alex-cv-pages                        # the .sts.yaml stem
->   - run: >
->       git config --global
->       url."https://x-access-token:${{ steps.octo-sts.outputs.token }}@github.com/".insteadOf
->       "https://github.com/"
-> ```
->
-> A fine-grained PAT or deploy key works too (drop it into the same `git config`
-> line as `x-access-token:${TOKEN}`), but that stores a long-lived secret.
+Tags are listed under [releases](https://github.com/sengine-cloud/harvard-style-cv-theme/releases),
+and [CHANGELOG.md](CHANGELOG.md) says what changed in each.
 
 ---
 
