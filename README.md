@@ -1,24 +1,29 @@
 # 🚀 Introducing Harvard-Style Jekyll CV Theme!
 Build a CV or résumé with a classic Harvard look. It is customizable, mobile-friendly and ready for GitHub Pages.
 
+This is a fork of [smirnoffmg/harvard-style-cv-theme](https://github.com/smirnoffmg/harvard-style-cv-theme)
+by [Maksim Smirnov](https://github.com/smirnoffmg). The layout and styling come from that project.
+This copy adds a few features and ships the theme as a gem; [Attribution](#-attribution) lists the changes.
+
 ---
 
 ## 🚀 Quick Start
 
-There are two ways to consume this theme. Then create your own `_config.yml` and
-`_data/cv.yml` files with your information.
+There are two ways to use this theme. With either one, create your own
+`_config.yml` and `_data/cv.yml` with your information (examples below). The
+repository is public, so neither option needs a token or other credentials.
 
-### Option A — as a gem (recommended; works with private repos)
+### Option A: as a gem (recommended)
 
-Package-based consumption builds the theme through Bundler, so it can be pinned
-to a tag for reproducible builds and can be fetched from a **private** repository.
+Bundler fetches the theme at a release tag, so every build uses the same version
+until you bump it.
 
 `Gemfile`:
 
 ```ruby
 gem "harvard-style-cv-theme",
     git: "https://github.com/sengine-cloud/harvard-style-cv-theme.git",
-    tag: "v1.1.0"
+    tag: "v1.3.0"
 ```
 
 `_config.yml`:
@@ -27,42 +32,14 @@ gem "harvard-style-cv-theme",
 theme: harvard-style-cv-theme
 ```
 
-### Option B — as a remote theme (public repos only)
+### Option B: as a remote theme
 
 ```yaml
-remote_theme: sengine-cloud/harvard-style-cv-theme@v1.1.0
+remote_theme: sengine-cloud/harvard-style-cv-theme@v1.3.0
 ```
 
-> ⚠️ **Private repositories:** `jekyll-remote-theme` downloads the theme from
-> `codeload.github.com` and sends **no credentials**, so `remote_theme` cannot
-> authenticate against a private theme repo — use **Option A** instead, and give
-> the consuming site's CI read access to this repo.
->
-> The recommended way is **[Octo STS](https://github.com/octo-sts/app)** — OIDC
-> federation with *no stored secrets*. Check a trust policy into this repo at
-> `.github/chainguard/<identity>.sts.yaml` (see
-> [`alex-cv-pages.sts.yaml`](.github/chainguard/alex-cv-pages.sts.yaml)), install
-> the [Octo STS app](https://github.com/apps/octo-sts) on this repo, then in the
-> consumer's workflow mint a short-lived token and hand it to Bundler:
->
-> ```yaml
-> permissions:
->   id-token: write   # federate the OIDC token
->   contents: read
-> steps:
->   - uses: octo-sts/action@v1
->     id: octo-sts
->     with:
->       scope: sengine-cloud/harvard-style-cv-theme   # this repo
->       identity: alex-cv-pages                        # the .sts.yaml stem
->   - run: >
->       git config --global
->       url."https://x-access-token:${{ steps.octo-sts.outputs.token }}@github.com/".insteadOf
->       "https://github.com/"
-> ```
->
-> A fine-grained PAT or deploy key works too (drop it into the same `git config`
-> line as `x-access-token:${TOKEN}`), but that stores a long-lived secret.
+Tags are listed under [releases](https://github.com/sengine-cloud/harvard-style-cv-theme/releases),
+and [CHANGELOG.md](CHANGELOG.md) says what changed in each.
 
 ---
 
@@ -227,8 +204,7 @@ employer. Each role renders as a nested entry (with its own `title`, `sub`,
 - **Easy customization** - manage all content through simple YAML files
 - **GitHub Pages ready** - works out of the box with no additional setup
 - **SEO optimized** - built-in search engine optimization
-- **CI/CD pipeline** - automated testing, building, and deployment
-- **Semantic versioning** - automatic version management and releases
+- **Semantic versioning** - tagged releases you can pin, with a [changelog](CHANGELOG.md)
 
 ---
 
@@ -240,7 +216,7 @@ Found a bug or have a feature request? [Open an issue](https://github.com/sengin
 
 ## 🙏 Attribution
 
-This is a fork of [`smirnoffmg/harvard-style-cv-theme`](https://github.com/smirnoffmg/harvard-style-cv-theme) by [Maksim Smirnov](https://github.com/smirnoffmg), vendored under the `sengine-cloud` organization and extended (nested roles, GoatCounter support, gem packaging). Licensed under MIT — see [LICENSE](LICENSE).
+This is a fork of [`smirnoffmg/harvard-style-cv-theme`](https://github.com/smirnoffmg/harvard-style-cv-theme) by [Maksim Smirnov](https://github.com/smirnoffmg), maintained under the `sengine-cloud` organization. It adds nested roles, GoatCounter support, gem packaging, a more compact print layout, a print / save-as-PDF button and a Calendly link; [CHANGELOG.md](CHANGELOG.md) has the details. The original MIT license and copyright notice are kept in [LICENSE](LICENSE).
 
 ---
 
