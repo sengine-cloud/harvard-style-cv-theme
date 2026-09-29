@@ -1,6 +1,10 @@
 # 🚀 Introducing Harvard-Style Jekyll CV Theme!
 Build a CV or résumé with a classic Harvard look. It is customizable, mobile-friendly and ready for GitHub Pages.
 
+This is a fork of [smirnoffmg/harvard-style-cv-theme](https://github.com/smirnoffmg/harvard-style-cv-theme)
+by [Maksim Smirnov](https://github.com/smirnoffmg). The layout and styling come from that project.
+This copy adds a few features and ships the theme as a gem; [Attribution](#-attribution) lists the changes.
+
 ---
 
 ## 🚀 Quick Start
@@ -212,7 +216,7 @@ Found a bug or have a feature request? [Open an issue](https://github.com/sengin
 
 ## 🙏 Attribution
 
-This is a fork of [`smirnoffmg/harvard-style-cv-theme`](https://github.com/smirnoffmg/harvard-style-cv-theme) by [Maksim Smirnov](https://github.com/smirnoffmg), vendored under the `sengine-cloud` organization and extended (nested roles, GoatCounter support, gem packaging). Licensed under MIT — see [LICENSE](LICENSE).
+This is a fork of [`smirnoffmg/harvard-style-cv-theme`](https://github.com/smirnoffmg/harvard-style-cv-theme) by [Maksim Smirnov](https://github.com/smirnoffmg), maintained under the `sengine-cloud` organization. It adds nested roles, GoatCounter support, gem packaging, a more compact print layout, a print / save-as-PDF button and a Calendly link; [CHANGELOG.md](CHANGELOG.md) has the details. The original MIT license and copyright notice are kept in [LICENSE](LICENSE).
 
 ---
 
