@@ -72,9 +72,6 @@ goatcounter: "https://yourcode.goatcounter.com"
 # Optional: Google Analytics
 google_analytics: G-XXXXXXXXXX
 
-# Optional: Yandex.Metrika (with goal tracking for contact clicks)
-yandex_metrika: 12345678
-
 # Site Settings
 description: "Harvard-style CV • Dr. Jane Smith"
 baseurl: ""

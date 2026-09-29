@@ -8,6 +8,11 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 ## [Unreleased]
 
 ### Removed
+- Yandex.Metrika support: the `yandex_metrika` config key, the counter and
+  goal-tracking scripts in `default.html`, and the `data-ym-goal` attributes on
+  the print button and the contact and social links in `cv.html`. A site that
+  sets `yandex_metrika` still builds; it just stops loading the Metrika tag once
+  it updates the theme. GoatCounter and Google Analytics work as before.
 - The Octo STS trust policy (`.github/chainguard/alex-cv-pages.sts.yaml`) and the
   README section on reading the theme from a private repository. The repository
   is public now, so both install options work without credentials, and a site
