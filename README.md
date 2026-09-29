@@ -23,7 +23,7 @@ until you bump it.
 ```ruby
 gem "harvard-style-cv-theme",
     git: "https://github.com/sengine-cloud/harvard-style-cv-theme.git",
-    tag: "v1.3.0"
+    tag: "v2.0.0"
 ```
 
 `_config.yml`:
@@ -35,7 +35,7 @@ theme: harvard-style-cv-theme
 ### Option B: as a remote theme
 
 ```yaml
-remote_theme: sengine-cloud/harvard-style-cv-theme@v1.3.0
+remote_theme: sengine-cloud/harvard-style-cv-theme@v2.0.0
 ```
 
 Tags are listed under [releases](https://github.com/sengine-cloud/harvard-style-cv-theme/releases),
