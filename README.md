@@ -200,8 +200,7 @@ employer. Each role renders as a nested entry (with its own `title`, `sub`,
 - **Easy customization** - manage all content through simple YAML files
 - **GitHub Pages ready** - works out of the box with no additional setup
 - **SEO optimized** - built-in search engine optimization
-- **CI/CD pipeline** - automated testing, building, and deployment
-- **Semantic versioning** - automatic version management and releases
+- **Semantic versioning** - tagged releases you can pin, with a [changelog](CHANGELOG.md)
 
 ---
 
