@@ -7,6 +7,21 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 
 ## [Unreleased]
 
+## [2.0.0] - 2026-09-29
+
+This release drops Yandex.Metrika, which makes it a major version. It also
+carries the Calendly link that was prepared as 1.3.0 but never tagged.
+
+### Added
+- **Calendly link** in `cv.html`, set with the new `calendly` config key. It takes
+  a Calendly path (`janesmith` or `janesmith/30min`) and the theme builds the
+  `https://calendly.com/...` URL, the same way the other social keys work. On
+  screen it is an icon at the end of the social row, drawn on the same rounded
+  square as the LinkedIn/GitHub/Telegram icons, with a "Book a meeting (Calendly)"
+  tooltip. In print it becomes a `Calendly: <url>` line with the other links.
+  Clicks go through the usual `data-goatcounter-click` hook. It is a plain link:
+  no Calendly script or embed widget is loaded.
+
 ### Removed
 - Yandex.Metrika support: the `yandex_metrika` config key, the counter and
   goal-tracking scripts in `default.html`, and the `data-ym-goal` attributes on
@@ -20,18 +35,6 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 - `CONSTITUTION.md`, the guide for AI agents inherited from upstream. It
   described workflows, a `develop` branch and a release process this repository
   doesn't have.
-
-## [1.3.0] - 2026-09-29
-
-### Added
-- **Calendly link** in `cv.html`, set with the new `calendly` config key. It takes
-  a Calendly path (`janesmith` or `janesmith/30min`) and the theme builds the
-  `https://calendly.com/...` URL, the same way the other social keys work. On
-  screen it is an icon at the end of the social row, drawn on the same rounded
-  square as the LinkedIn/GitHub/Telegram icons, with a "Book a meeting (Calendly)"
-  tooltip. In print it becomes a `Calendly: <url>` line with the other links.
-  Clicks go through the usual `data-ym-goal` / `data-goatcounter-click` hooks.
-  It is a plain link: no Calendly script or embed widget is loaded.
 
 ## [1.2.0] - 2026-06-15
 
@@ -136,8 +139,8 @@ repository, which `jekyll-remote-theme` cannot authenticate against.
 - Conditional rendering for optional fields
 - HTML support in bullet points for formatting
 
-[Unreleased]: https://github.com/sengine-cloud/harvard-style-cv-theme/compare/v1.3.0...HEAD
-[1.3.0]: https://github.com/sengine-cloud/harvard-style-cv-theme/compare/v1.2.0...v1.3.0
+[Unreleased]: https://github.com/sengine-cloud/harvard-style-cv-theme/compare/v2.0.0...HEAD
+[2.0.0]: https://github.com/sengine-cloud/harvard-style-cv-theme/compare/v1.2.0...v2.0.0
 [1.2.0]: https://github.com/sengine-cloud/harvard-style-cv-theme/compare/v1.1.4...v1.2.0
 [1.1.4]: https://github.com/sengine-cloud/harvard-style-cv-theme/compare/v1.1.3...v1.1.4
 [1.1.3]: https://github.com/sengine-cloud/harvard-style-cv-theme/compare/v1.1.2...v1.1.3
