@@ -1,5 +1,5 @@
 # 🚀 Introducing Harvard-Style Jekyll CV Theme!
-Instantly create a professional academic CV with a classic Harvard look—customizable, mobile-friendly, and ready for GitHub Pages.
+Build a CV or résumé with a classic Harvard look. It is customizable, mobile-friendly and ready for GitHub Pages.
 
 ---
 
