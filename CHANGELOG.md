@@ -12,6 +12,9 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
   README section on reading the theme from a private repository. The repository
   is public now, so both install options work without credentials, and a site
   that minted a token just to fetch the theme can drop that step.
+- `CONSTITUTION.md`, the guide for AI agents inherited from upstream. It
+  described workflows, a `develop` branch and a release process this repository
+  doesn't have.
 
 ## [1.3.0] - 2026-09-29
 
