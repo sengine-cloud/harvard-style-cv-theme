@@ -1,5 +1,5 @@
 # 🚀 Introducing Harvard-Style Jekyll CV Theme!
-Instantly create a professional academic CV with a classic Harvard look—customizable, mobile-friendly, and ready for GitHub Pages.
+Build a CV or résumé with a classic Harvard look. It is customizable, mobile-friendly and ready for GitHub Pages.
 
 ---
 
@@ -87,6 +87,7 @@ github: janesmith
 twitter: janesmith
 telegram: janesmith
 leetcode: janesmith
+calendly: janesmith/30min # Calendly booking page: username, or username/event
 
 # Optional: GoatCounter (privacy-friendly; tracks data-goatcounter-click links)
 goatcounter: "https://yourcode.goatcounter.com"
@@ -222,7 +223,7 @@ employer. Each role renders as a nested entry (with its own `title`, `sub`,
   ![Printer button default and hover/focus states side by side](docs/screenshots/print-button-states.png)
 
 - **Responsive design** - perfect on desktop, tablet, and mobile
-- **Social integration** - LinkedIn, GitHub, Twitter, Telegram, LeetCode icons
+- **Social integration** - LinkedIn, GitHub, Twitter, Telegram, LeetCode icons, plus a Calendly booking link
 - **Easy customization** - manage all content through simple YAML files
 - **GitHub Pages ready** - works out of the box with no additional setup
 - **SEO optimized** - built-in search engine optimization
