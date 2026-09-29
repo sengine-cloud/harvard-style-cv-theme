@@ -69,6 +69,11 @@ calendly: janesmith/30min # Calendly booking page: username, or username/event
 # Optional: GoatCounter (privacy-friendly; tracks data-goatcounter-click links)
 goatcounter: "https://yourcode.goatcounter.com"
 
+# Optional: Tianji (self-hosted; tracks data-tianji-event links)
+tianji:
+  url: "https://stats.example.com"
+  website_id: "your-website-id"
+
 # Optional: Google Analytics
 google_analytics: G-XXXXXXXXXX
 
@@ -213,7 +218,7 @@ Found a bug or have a feature request? [Open an issue](https://github.com/sengin
 
 ## 🙏 Attribution
 
-This is a fork of [`smirnoffmg/harvard-style-cv-theme`](https://github.com/smirnoffmg/harvard-style-cv-theme) by [Maksim Smirnov](https://github.com/smirnoffmg), maintained under the `sengine-cloud` organization. It adds nested roles, GoatCounter support, gem packaging, a more compact print layout, a print / save-as-PDF button and a Calendly link; [CHANGELOG.md](CHANGELOG.md) has the details. The original MIT license and copyright notice are kept in [LICENSE](LICENSE).
+This is a fork of [`smirnoffmg/harvard-style-cv-theme`](https://github.com/smirnoffmg/harvard-style-cv-theme) by [Maksim Smirnov](https://github.com/smirnoffmg), maintained under the `sengine-cloud` organization. It adds nested roles, GoatCounter and Tianji support, gem packaging, a more compact print layout, a print / save-as-PDF button and a Calendly link; [CHANGELOG.md](CHANGELOG.md) has the details. The original MIT license and copyright notice are kept in [LICENSE](LICENSE).
 
 ---
 

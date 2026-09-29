@@ -7,6 +7,16 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 
 ## [Unreleased]
 
+## [2.1.0] - 2026-09-29
+
+### Added
+- **Tianji** analytics support in `default.html`, set with a `tianji` config
+  block (`url` and `website_id`). It loads `tracker.js` from your Tianji
+  instance. The print button and the contact and social links in `cv.html` now
+  also carry `data-tianji-event`, with the same names as their
+  `data-goatcounter-click` hooks, so clicks show up as Tianji events. GoatCounter
+  support is unchanged and the two can be enabled together.
+
 ## [2.0.0] - 2026-09-29
 
 This release drops Yandex.Metrika, which makes it a major version. It also
@@ -139,7 +149,8 @@ repository, which `jekyll-remote-theme` cannot authenticate against.
 - Conditional rendering for optional fields
 - HTML support in bullet points for formatting
 
-[Unreleased]: https://github.com/sengine-cloud/harvard-style-cv-theme/compare/v2.0.0...HEAD
+[Unreleased]: https://github.com/sengine-cloud/harvard-style-cv-theme/compare/v2.1.0...HEAD
+[2.1.0]: https://github.com/sengine-cloud/harvard-style-cv-theme/compare/v2.0.0...v2.1.0
 [2.0.0]: https://github.com/sengine-cloud/harvard-style-cv-theme/compare/v1.2.0...v2.0.0
 [1.2.0]: https://github.com/sengine-cloud/harvard-style-cv-theme/compare/v1.1.4...v1.2.0
 [1.1.4]: https://github.com/sengine-cloud/harvard-style-cv-theme/compare/v1.1.3...v1.1.4
